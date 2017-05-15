@@ -1,29 +1,78 @@
 function validateForm(){
-	var nombre = document.getElementById("name").value;
-	var apellido = document.getElementById("lastname").value;
-	var email = document.getElementById("input-email").value;
-	var password = document.getElementById("input-password").value;
-	var select = document.getElementsByClassName("form-control").selectedIndex;
+	
+	function nombre(){
+		var nombre = document.getElementById("name").value;
 
+		if(!(/^[A-Z][a-z]{3,19}$/).test(nombre)){
+			
+		}
 
-	/*if(!(/^[A-Z][a-z]{3,19}$/).test(nombre)){
-		alert("Ingrese un nombre válido");
-	} if(!!(/^[A-Z][a-z]{3,19}$/).test(apellido)){
-		alert("Ingrese un apellido válido");
-	} if(!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email))){
-		alert("Ingrese un correo valido");
-	}*/ if((password == "password") || (password == 123456) || (password == 098754) || (!(/^([0-9].{6,15}$/).test(password)) ){
-		alert("Ingrese una clave válida");
+		var cajaDiv = document.getElementsByClassName("name-container input-box")[0];
+		var x = document.createElement("span");
+  	var t = document.createTextNode("Ingrese un nombre válido");
+ 		x.appendChild(t);
+ 		cajaDiv.appendChild(x);
+
+	}
+	nombre();
+
+	function apellido(){
+		var apellido = document.getElementById("lastname").value;
+
+		if(!(/^[A-Z][a-z]{3,19}$/).test(apellido)){
+		
+		} 
+
+		var cajaDiv = document.getElementsByClassName("lastname-container input-box")[0];
+		var x = document.createElement("span");
+  	var t = document.createTextNode("Ingrese un apellido válido");
+ 		x.appendChild(t);
+ 		cajaDiv.appendChild(x);
+	}
+	apellido();
+
+	function email(){
+		var email = document.getElementById("input-email").value;
+
+		if(!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email))){
+	
+		} 
+
+		var cajaDiv = document.getElementsByClassName("email-container input-box")[0];
+		var x = document.createElement("span");
+  	var t = document.createTextNode("Ingrese un correo valido");
+ 		cajaDiv.appendChild(x);
 	}
 
+	function password(){
+		var password = document.getElementById("input-password").value;
 
-	/*if( select == null || select == 0 ) {
-  		alert("Debe seleccionar su bicicleta");
-	} 
+		if((password == "password") || (password == 123456) || (password == 098754) || (!(/^(?=.*\d).{6,}$/).test(password)) ){
+		
+		}	
 
-	if((nombre.length == 0) || (apellido.length == 0) || (email.length == 0) || (password.length == 0)){
-		alert("Debe completar todos los campos");
+		var cajaDiv = document.getElementsByClassName("form-group input-box")[0];
+		var x = document.createElement("span");
+  	var t = document.createTextNode("Ingrese una clave válida");
+ 		x.appendChild(t);
+ 		cajaDiv.appendChild(x);
+
 	}
-*/
+	password();
 
+	function select(){
+
+		var select = document.getElementsByClassName("form-control").selectedIndex;
+
+		if( select == null || select == 0 ) {
+	  	
+		} 
+
+		var cajaDiv = document.getElementsByClassName("form-group input-box")[1];
+		var x = document.createElement("span");
+  	var t = document.createTextNode("Debe seleccionar su bicicleta");
+ 		x.appendChild(t);
+ 		cajaDiv.appendChild(x);
+	}
+	select();
 }
